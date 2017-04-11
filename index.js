@@ -2,7 +2,7 @@ var app = require('express')()
 var server = require('http').createServer(app)
 var socket = require('socket.io')
 var io = socket.listen( server, {origin: '*:*'} )
-// var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000
 
 io.on('connection', function(client){
   console.log('new client')
@@ -12,6 +12,6 @@ io.on('connection', function(client){
   })
 })//listen
 
-// server.listen(port, function(){
-//   console.log('listening on ', port)
-// })
+server.listen(port, function(){
+  console.log('listening on ', port)
+})
